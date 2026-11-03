@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 985" width="1280" height="985" font-family="'JetBrains Mono','Fira Code',Consolas,'SF Mono',monospace">
+<defs>
+<radialGradient id="bg" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#14122e"/><stop offset="1" stop-color="#05070d"/></radialGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#1a2440" stroke-width="0.6" opacity="0.6"/></pattern>
+<linearGradient id="core" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+<linearGradient id="title" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#a78bfa"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
+<filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="glow2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+<style>
+.flow{stroke-dasharray:7 6;animation:d 1.2s linear infinite}
+@keyframes d{to{stroke-dashoffset:-26}}
+.pulse{animation:p 2.4s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:.55}50%{opacity:1}}
+.t{fill:#f1f5f9;font-weight:700;font-size:16px}
+.s{fill:#8b9bb8;font-size:11.5px}
+.l{fill:#64748b;font-size:11px;letter-spacing:3px;font-weight:700}
+</style>
+</defs>
+<rect width="1280" height="985" fill="url(#bg)"/><rect width="1280" height="985" fill="url(#grid)"/>
+<text x="640" y="34" text-anchor="middle" font-size="22" font-weight="800" letter-spacing="8" fill="url(#title)">A E G I S   ·   A R C H I T E C T U R E</text>
+
+<text x="50" y="62" class="l">01 · SOURCES</text>
+<rect x="50" y="72" width="270" height="88" rx="14" fill="#0a1120" stroke="#ff9900" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="50" y="72" width="5" height="88" rx="2" fill="#ff9900"/>
+<text x="185.0" y="113.0" text-anchor="middle" class="t">AWS</text>
+<text x="185.0" y="134.0" text-anchor="middle" class="s">IAM · EC2 · S3 · VPC · Lambda</text>
+<path d="M185 160V215" fill="none" stroke="#ff9900" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<rect x="350" y="72" width="270" height="88" rx="14" fill="#0a1120" stroke="#38bdf8" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="350" y="72" width="5" height="88" rx="2" fill="#38bdf8"/>
+<text x="485.0" y="113.0" text-anchor="middle" class="t">Azure</text>
+<text x="485.0" y="134.0" text-anchor="middle" class="s">Entra ID · VMs · NSG · Storage</text>
+<path d="M485 160V215" fill="none" stroke="#38bdf8" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<rect x="650" y="72" width="270" height="88" rx="14" fill="#0a1120" stroke="#34d399" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="650" y="72" width="5" height="88" rx="2" fill="#34d399"/>
+<text x="785.0" y="113.0" text-anchor="middle" class="t">GCP</text>
+<text x="785.0" y="134.0" text-anchor="middle" class="s">IAM · GCE · VPC · GCS</text>
+<path d="M785 160V215" fill="none" stroke="#34d399" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<rect x="950" y="72" width="270" height="88" rx="14" fill="#0a1120" stroke="#a78bfa" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="950" y="72" width="5" height="88" rx="2" fill="#a78bfa"/>
+<text x="1085.0" y="113.0" text-anchor="middle" class="t">Offline Snapshots</text>
+<text x="1085.0" y="134.0" text-anchor="middle" class="s">JSON exports · zero credentials</text>
+<path d="M1085 160V215" fill="none" stroke="#a78bfa" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<text x="50" y="200" class="l">02 · INGEST</text>
+<rect x="50" y="215" width="1180" height="72" rx="14" fill="#0a1120" stroke="#22d3ee" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="50" y="215" width="5" height="72" rx="2" fill="#22d3ee"/>
+<text x="640.0" y="248.0" text-anchor="middle" class="t">COLLECT  ›  NORMALIZE</text>
+<text x="640.0" y="269.0" text-anchor="middle" class="s">Read-only collectors  ·  Provider adapters  ·  Unified resource schema</text>
+<path d="M640 287V342" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<text x="50" y="325" class="l">03 · UNDERSTAND</text>
+<rect x="50" y="345" width="340" height="190" rx="16" fill="#0a1120" stroke="#a78bfa" stroke-width="1.6" filter="url(#glow)"/>
+<text x="70" y="374" class="t" style="font-size:13px;letter-spacing:2px" fill="#a78bfa">KNOWLEDGE GRAPH</text>
+<path d="M95 455L175 410" fill="none" stroke="#f43f5e" stroke-width="2" class="flow" opacity="0.9"/>
+<path d="M175 410L255 455" fill="none" stroke="#f43f5e" stroke-width="2" class="flow" opacity="0.9"/>
+<path d="M255 455L335 410" fill="none" stroke="#f43f5e" stroke-width="2" class="flow" opacity="0.9"/>
+<circle cx="95" cy="455" r="14" fill="#0a1120" stroke="#f43f5e" stroke-width="2.4" filter="url(#glow)" class="pulse"/><circle cx="95" cy="455" r="5" fill="#f43f5e"/>
+<text x="95" y="487" text-anchor="middle" class="s">Internet</text>
+<circle cx="175" cy="410" r="14" fill="#0a1120" stroke="#fb923c" stroke-width="2.4" filter="url(#glow)" class="pulse"/><circle cx="175" cy="410" r="5" fill="#fb923c"/>
+<text x="175" y="442" text-anchor="middle" class="s">EC2</text>
+<circle cx="255" cy="455" r="14" fill="#0a1120" stroke="#a78bfa" stroke-width="2.4" filter="url(#glow)" class="pulse"/><circle cx="255" cy="455" r="5" fill="#a78bfa"/>
+<text x="255" y="487" text-anchor="middle" class="s">IAM Role</text>
+<circle cx="335" cy="410" r="14" fill="#0a1120" stroke="#22d3ee" stroke-width="2.4" filter="url(#glow)" class="pulse"/><circle cx="335" cy="410" r="5" fill="#22d3ee"/>
+<text x="335" y="442" text-anchor="middle" class="s">S3 Prod</text>
+<text x="220" y="522" text-anchor="middle" class="s">nodes = resources · edges = can_reach / can_assume</text>
+<rect x="890" y="345" width="340" height="190" rx="16" fill="#0a1120" stroke="#fbbf24" stroke-width="1.6" filter="url(#glow)"/>
+<text x="910" y="374" class="t" style="font-size:13px;letter-spacing:2px" fill="#fbbf24">RULES &amp; POLICY ENGINE</text>
+<circle cx="915" cy="408" r="5" fill="#f43f5e" filter="url(#glow)"/><text x="932" y="412" class="s" style="font-size:12px;fill:#cbd5e1">IAM-001  PassRole escalation</text>
+<circle cx="915" cy="438" r="5" fill="#fb923c" filter="url(#glow)"/><text x="932" y="442" class="s" style="font-size:12px;fill:#cbd5e1">NET-014  Public ingress 0.0.0.0/0</text>
+<circle cx="915" cy="468" r="5" fill="#fbbf24" filter="url(#glow)"/><text x="932" y="472" class="s" style="font-size:12px;fill:#cbd5e1">S3-007   Public bucket + sensitive data</text>
+<circle cx="915" cy="498" r="5" fill="#22d3ee" filter="url(#glow)"/><text x="932" y="502" class="s" style="font-size:12px;fill:#cbd5e1">KMS-003  Key policy too broad</text>
+<path d="M390 440H540" fill="none" stroke="#a78bfa" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<path d="M890 440H740" fill="none" stroke="#fbbf24" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<circle cx="640" cy="440" r="110" fill="#6d28d9" opacity="0.18" filter="url(#glow2)"/>
+<circle cx="640" cy="440" r="96" fill="#0a1120" stroke="url(#core)" stroke-width="3" filter="url(#glow)"/>
+<circle cx="640" cy="440" r="108" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="3 9"><animateTransform attributeName="transform" type="rotate" from="0 640 440" to="360 640 440" dur="24s" repeatCount="indefinite"/></circle>
+<path d="M640 385L674 397V425C674 447 660 461 640 470C620 461 606 447 606 425V397Z" fill="#1e1b4b" stroke="url(#core)" stroke-width="3" filter="url(#glow)"/>
+<g stroke="#22d3ee" stroke-width="1.5"><line x1="640" y1="410" x2="625" y2="438"/><line x1="640" y1="410" x2="655" y2="438"/><line x1="625" y1="438" x2="655" y2="438"/></g><g fill="#22d3ee"><circle cx="640" cy="410" r="4"/><circle cx="625" cy="438" r="4"/><circle cx="655" cy="438" r="4"/></g>
+<text x="640" y="494" text-anchor="middle" class="t" style="font-size:15px;letter-spacing:3px">AEGIS CORE</text><text x="640" y="512" text-anchor="middle" class="s">Graph Engine</text>
+<path d="M640 546V575" fill="none" stroke="#a78bfa" stroke-width="2" class="flow" opacity="0.9"/>
+<text x="50" y="580" class="l">04 · ANALYZE</text>
+<path d="M185 595H1085" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" opacity="0.9"/>
+<path d="M185 595V612" fill="none" stroke="#f43f5e" stroke-width="2" class="flow" opacity="0.9"/>
+<rect x="50" y="612" width="270" height="76" rx="14" fill="#0a1120" stroke="#f43f5e" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="50" y="612" width="5" height="76" rx="2" fill="#f43f5e"/>
+<text x="185.0" y="647.0" text-anchor="middle" class="t">Attack Paths</text>
+<text x="185.0" y="668.0" text-anchor="middle" class="s">Internet → crown jewels</text>
+<path d="M485 595V612" fill="none" stroke="#fb923c" stroke-width="2" class="flow" opacity="0.9"/>
+<rect x="350" y="612" width="270" height="76" rx="14" fill="#0a1120" stroke="#fb923c" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="350" y="612" width="5" height="76" rx="2" fill="#fb923c"/>
+<text x="485.0" y="647.0" text-anchor="middle" class="t">Blast Radius</text>
+<text x="485.0" y="668.0" text-anchor="middle" class="s">What an identity can reach</text>
+<path d="M785 595V612" fill="none" stroke="#fbbf24" stroke-width="2" class="flow" opacity="0.9"/>
+<rect x="650" y="612" width="270" height="76" rx="14" fill="#0a1120" stroke="#fbbf24" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="650" y="612" width="5" height="76" rx="2" fill="#fbbf24"/>
+<text x="785.0" y="647.0" text-anchor="middle" class="t">Toxic Combinations</text>
+<text x="785.0" y="668.0" text-anchor="middle" class="s">Small configs, big risk</text>
+<path d="M1085 595V612" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" opacity="0.9"/>
+<rect x="950" y="612" width="270" height="76" rx="14" fill="#0a1120" stroke="#22d3ee" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="950" y="612" width="5" height="76" rx="2" fill="#22d3ee"/>
+<text x="1085.0" y="647.0" text-anchor="middle" class="t">Risk Scoring</text>
+<text x="1085.0" y="668.0" text-anchor="middle" class="s">Exploitability × impact</text>
+<text x="50" y="722" class="l">05 · ACT SAFELY</text>
+<path d="M185 688V705" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" opacity="0.9"/>
+<path d="M485 688V705" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" opacity="0.9"/>
+<path d="M785 688V705" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" opacity="0.9"/>
+<path d="M1085 688V705" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" opacity="0.9"/>
+<path d="M185 705H1050" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" opacity="0.9"/>
+<path d="M230 705V740" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<path d="M640 705V740" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<path d="M1050 705V740" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<rect x="50" y="740" width="360" height="78" rx="14" fill="#0a1120" stroke="#a78bfa" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="50" y="740" width="5" height="78" rx="2" fill="#a78bfa"/>
+<text x="230.0" y="776.0" text-anchor="middle" class="t">SIMULATE</text>
+<text x="230.0" y="797.0" text-anchor="middle" class="s">What-if on a graph copy</text>
+<rect x="460" y="740" width="360" height="78" rx="14" fill="#0a1120" stroke="#22d3ee" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="460" y="740" width="5" height="78" rx="2" fill="#22d3ee"/>
+<text x="640.0" y="776.0" text-anchor="middle" class="t">REMEDIATE</text>
+<text x="640.0" y="797.0" text-anchor="middle" class="s">Terraform / CLI patch · never auto-apply</text>
+<rect x="870" y="740" width="360" height="78" rx="14" fill="#0a1120" stroke="#34d399" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="870" y="740" width="5" height="78" rx="2" fill="#34d399"/>
+<text x="1050.0" y="776.0" text-anchor="middle" class="t">VERIFY</text>
+<text x="1050.0" y="797.0" text-anchor="middle" class="s">Re-analyze · diff before / after</text>
+<path d="M410 779H460" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<path d="M820 779H870" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<path d="M1050 818C1050 880 230 880 230 818" fill="none" stroke="#34d399" stroke-width="1.8" stroke-dasharray="4 6" class="flow" marker-end="url(#ar)" opacity="0.8"/>
+<text x="640" y="858" text-anchor="middle" class="s" style="fill:#34d399">continuous verification loop</text>
+<path d="M640 872V905" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)" opacity="0.9"/>
+<text x="50" y="895" class="l">06 · INTERFACES</text>
+<rect x="50" y="905" width="270" height="62" rx="14" fill="#0a1120" stroke="#34d399" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="50" y="905" width="5" height="62" rx="2" fill="#34d399"/>
+<text x="185.0" y="933.0" text-anchor="middle" class="t">CLI</text>
+<text x="185.0" y="954.0" text-anchor="middle" class="s">aegis scan · path · simulate</text>
+<rect x="350" y="905" width="270" height="62" rx="14" fill="#0a1120" stroke="#38bdf8" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="350" y="905" width="5" height="62" rx="2" fill="#38bdf8"/>
+<text x="485.0" y="933.0" text-anchor="middle" class="t">REST API</text>
+<text x="485.0" y="954.0" text-anchor="middle" class="s">FastAPI · JSON</text>
+<rect x="650" y="905" width="270" height="62" rx="14" fill="#0a1120" stroke="#a78bfa" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="650" y="905" width="5" height="62" rx="2" fill="#a78bfa"/>
+<text x="785.0" y="933.0" text-anchor="middle" class="t">Dashboard</text>
+<text x="785.0" y="954.0" text-anchor="middle" class="s">Risk queue · graph view</text>
+<rect x="950" y="905" width="270" height="62" rx="14" fill="#0a1120" stroke="#fb923c" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="950" y="905" width="5" height="62" rx="2" fill="#fb923c"/>
+<text x="1085.0" y="933.0" text-anchor="middle" class="t">Reports</text>
+<text x="1085.0" y="954.0" text-anchor="middle" class="s">SARIF · JSON · Markdown</text>
+</svg>
