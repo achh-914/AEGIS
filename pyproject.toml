@@ -1,1 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
 
+[project]
+name = "aegis-cloud"
+version = "0.0.1"
+description = "Multi-cloud Security Intelligence & Infrastructure Analysis Platform"
+readme = "README.md"
+requires-python = ">=3.9"
+
+[project.scripts]
+aegis = "aegis.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
