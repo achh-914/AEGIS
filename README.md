@@ -88,7 +88,7 @@ $ aegis verify --after ./snapshots/prod-after.json
 + ✔ Attack path closed · no regressions
 ```
 
-> paths, blast and simulate are implemented. fix and verify are on the roadmap, so their output above is the target UX.
+> The terminal preview is illustrative. paths, blast, simulate, scan and fix are implemented (see Quick start for the real commands). The verify command is on the roadmap.
 
 ---
 
@@ -132,8 +132,8 @@ Run the tests with pytest -q.
 - [x] Automatic scan with rule tags (OPEN-INGRESS, PRIVESC-PASSROLE, OPEN-TRUST, PUBLIC-BUCKET)
 - [ ] More rules (cross-account trust, wildcard IAM policies, unencrypted storage)
 - [ ] Risk scoring
-- [ ] Terraform / CLI remediation generator
-- [ ] Verification & before/after diff
+- [x] Verified fix planning with Terraform / manual patch snippets (aegis fix)
+- [ ] Standalone verify command (before/after snapshot diff)
 - [ ] Azure and GCP adapters
 - [ ] REST API + dashboard
 
