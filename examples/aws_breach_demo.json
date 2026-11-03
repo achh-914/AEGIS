@@ -1,0 +1,15 @@
+{
+  "security_groups": [
+    {"id": "sg-0a1b", "ingress": [{"cidr": "0.0.0.0/0", "port": 22}]}
+  ],
+  "instances": [
+    {"name": "web-01", "security_groups": ["sg-0a1b"], "role": "app-role"}
+  ],
+  "roles": [
+    {"name": "app-role", "can_pass_to": ["admin-role"]},
+    {"name": "admin-role", "s3_full_access": ["customer-data"]}
+  ],
+  "buckets": [
+    {"name": "customer-data", "sensitive": true}
+  ]
+}
