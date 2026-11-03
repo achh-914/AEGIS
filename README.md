@@ -17,6 +17,7 @@
 ![python](https://img.shields.io/badge/python-3.11+-22d3ee?style=for-the-badge&logo=python&logoColor=white)
 ![clouds](https://img.shields.io/badge/AWS%20·%20Azure%20·%20GCP-a78bfa?style=for-the-badge)
 ![license](https://img.shields.io/badge/license-see%20LICENSE-34d399?style=for-the-badge)
+![tests](https://img.shields.io/github/actions/workflow/status/achh-914/AEGIS/tests.yml?style=for-the-badge&label=tests)
 
 </div>
 
@@ -87,7 +88,29 @@ $ aegis verify --after ./snapshots/prod-after.json
 + ✔ Attack path closed · no regressions
 ```
 
-> The commands above show the **target UX**. The project is in early development.
+> paths, blast and simulate are implemented. fix and verify are on the roadmap, so their output above is the target UX.
+
+---
+
+## 🚀 Quick start
+
+```bash
+git clone https://github.com/achh-914/AEGIS.git
+cd AEGIS
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e .
+
+# 1. Find attack paths from the internet to a sensitive bucket
+aegis paths --snapshot examples/aws_breach_demo.json --to s3:customer-data
+
+# 2. What falls if this role is compromised?
+aegis blast --snapshot examples/aws_breach_demo.json --from role:app-role
+
+# 3. What-if: remove SSH exposure, on a copy of the graph
+aegis simulate --snapshot examples/aws_breach_demo.json --remove-ingress sg-0a1b:22
+```
+
+Run the tests with pytest -q.
 
 ---
 
@@ -100,11 +123,14 @@ $ aegis verify --after ./snapshots/prod-after.json
 
 ## 🗺️ Roadmap
 
-- [ ] Unified resource schema + AWS snapshot loader
-- [ ] Graph builder (IAM · Network · Storage)
-- [ ] Attack path engine + 5 reference paths as tests
-- [ ] Blast radius + risk scoring
-- [ ] Change simulation on graph copies
+- [x] Graph model + JSON snapshot loader (demo format)
+- [x] Attack path engine (first reference path, with tests)
+- [x] Blast radius analysis
+- [x] Change simulation on graph copies
+- [x] CI: tests on Python 3.11 / 3.12 / 3.13
+- [ ] Loader for real AWS exports (get-account-authorization-details)
+- [ ] More attack path rules (public S3, PassRole variants, cross-account trust)
+- [ ] Risk scoring
 - [ ] Terraform / CLI remediation generator
 - [ ] Verification & before/after diff
 - [ ] Azure and GCP adapters
