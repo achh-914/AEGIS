@@ -2,6 +2,7 @@ from __future__ import annotations
 import argparse
 import json
 from .blast import blast_radius
+from .fix import apply_all, plan, terraform
 from .loader import build_graph
 from .paths import find_paths
 from .scan import scan
@@ -91,6 +92,42 @@ def cmd_scan(a):
     return 1 if crit else 0
 
 
+def cmd_fix(a):
+    data = _load(a.snapshot)
+    items = plan(data)
+    if not items:
+        print("%s+ nothing to fix: no exposed paths%s" % (GRN, RST))
+        return 0
+    fixes, seen = [], set()
+    for n, it in enumerate(items, 1):
+        f, c = it["finding"], it["fix"]
+        col = RED if f["severity"] == "CRITICAL" else YEL
+        print()
+        print("%s%s%s%s #%d  %s  (%d hop%s)" % (
+            BLD, col, f["severity"], RST, n, f["target"], f["hops"], "" if f["hops"] == 1 else "s"))
+        if c is None:
+            print("  %sno safe automatic fix found, review manually%s" % (RED, RST))
+            continue
+        print("  rule    : %s" % c["rule"])
+        print("  fix     : %s" % c["desc"])
+        print("  %sverified: path closed, 0 new paths opened%s" % (GRN, RST))
+        k = json.dumps(c, sort_keys=True)
+        if k not in seen:
+            seen.add(k)
+            fixes.append(c)
+    remaining = apply_all(data, fixes)
+    print()
+    print("%s%d fix(es) planned: findings %d -> %d%s" % (BLD, len(fixes), len(items), len(remaining), RST))
+    if a.terraform and fixes:
+        print()
+        print("# --- Terraform / manual patch (review before applying) ---")
+        for c in fixes:
+            print(terraform(c))
+            print()
+    print("%sAEGIS never applies changes. Review and apply the patch yourself.%s" % (DIM, RST))
+    return 1 if remaining else 0
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="aegis")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -117,6 +154,11 @@ def main(argv=None):
     pc.add_argument("--snapshot", required=True)
     pc.add_argument("--from", dest="src", default="internet")
     pc.set_defaults(func=cmd_scan)
+
+    pf = sub.add_parser("fix", help="plan verified fixes (never applies them)")
+    pf.add_argument("--snapshot", required=True)
+    pf.add_argument("--terraform", action="store_true", help="also print the patch")
+    pf.set_defaults(func=cmd_fix)
 
     a = p.parse_args(argv)
     return a.func(a)
