@@ -129,7 +129,8 @@ Run the tests with pytest -q.
 - [x] Change simulation on graph copies
 - [x] CI: tests on Python 3.11 / 3.12 / 3.13
 - [ ] Loader for real AWS exports (get-account-authorization-details)
-- [ ] More attack path rules (public S3, PassRole variants, cross-account trust)
+- [x] Automatic scan with rule tags (OPEN-INGRESS, PRIVESC-PASSROLE, OPEN-TRUST, PUBLIC-BUCKET)
+- [ ] More rules (cross-account trust, wildcard IAM policies, unencrypted storage)
 - [ ] Risk scoring
 - [ ] Terraform / CLI remediation generator
 - [ ] Verification & before/after diff
