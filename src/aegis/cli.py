@@ -1,6 +1,7 @@
 from __future__ import annotations
 import argparse
 import json
+from .blast import blast_radius
 from .loader import build_graph
 from .paths import find_paths
 from .simulate import simulate
@@ -46,6 +47,27 @@ def cmd_simulate(a):
     return 1 if r["opened"] else 0
 
 
+def cmd_blast(a):
+    g = build_graph(_load(a.snapshot))
+    if a.src not in g.nodes:
+        print("%sx unknown node: %s%s" % (RED, a.src, RST))
+        print("  available: " + ", ".join(sorted(g.nodes)))
+        return 2
+    reached = blast_radius(g, a.src)
+    sensitive = [n for n in reached if g.nodes[n].props.get("sensitive")]
+    print("%s~ blast radius of%s %s" % (YEL, RST, a.src))
+    if not reached:
+        print("%s+ nothing reachable: compromise stays contained%s" % (GRN, RST))
+        return 0
+    print("  %d resource(s) reachable, %d sensitive\n" % (len(reached), len(sensitive)))
+    for nid, path in sorted(reached.items(), key=lambda kv: len(kv[1])):
+        node = g.nodes[nid]
+        flag = "  %s%s[SENSITIVE]%s" % (BLD, RED, RST) if node.props.get("sensitive") else ""
+        print("  %s%-28s%s %s%-12s hops=%d%s%s" % (
+            RED if flag else YEL, nid, RST, DIM, node.type, len(path), RST, flag))
+    return 1 if sensitive else 0
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="aegis")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -62,6 +84,11 @@ def main(argv=None):
     ps.add_argument("--to", dest="dst", default=None)
     ps.add_argument("--remove-ingress", required=True, metavar="SG:PORT")
     ps.set_defaults(func=cmd_simulate)
+
+    pb = sub.add_parser("blast", help="what is reachable if this node is compromised")
+    pb.add_argument("--snapshot", required=True)
+    pb.add_argument("--from", dest="src", required=True)
+    pb.set_defaults(func=cmd_blast)
 
     a = p.parse_args(argv)
     return a.func(a)
