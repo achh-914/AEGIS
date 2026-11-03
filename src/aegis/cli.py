@@ -4,6 +4,7 @@ import json
 from .blast import blast_radius
 from .loader import build_graph
 from .paths import find_paths
+from .scan import scan
 from .simulate import simulate
 
 RED, GRN, YEL, DIM, BLD, RST = (
@@ -68,6 +69,28 @@ def cmd_blast(a):
     return 1 if sensitive else 0
 
 
+def cmd_scan(a):
+    g = build_graph(_load(a.snapshot))
+    edges = sum(len(v) for v in g.out.values())
+    print("%s+ loaded %d resources, %d relationships%s" % (GRN, len(g.nodes), edges, RST))
+    findings = scan(g, a.src)
+    if not findings:
+        print("%s+ no exposed buckets found from %s%s" % (GRN, a.src, RST))
+        return 0
+    crit = sum(1 for f in findings if f["severity"] == "CRITICAL")
+    for n, f in enumerate(findings, 1):
+        col = RED if f["severity"] == "CRITICAL" else YEL
+        print("\n%s%s%s%s #%d  %s  (%d hop%s)" % (
+            BLD, col, f["severity"], RST, n, f["target"], f["hops"], "" if f["hops"] == 1 else "s"))
+        print("  %srules: %s%s" % (DIM, ", ".join(f["tags"]) or "-", RST))
+        print("  " + a.src)
+        for e in f["path"]:
+            print("  %s-> %s%s  %s[%s]%s" % (col, e.dst, RST, DIM, e.reason, RST))
+    print("\n%s%d finding(s): %d critical, %d medium%s" % (
+        BLD, len(findings), crit, len(findings) - crit, RST))
+    return 1 if crit else 0
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="aegis")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -89,6 +112,11 @@ def main(argv=None):
     pb.add_argument("--snapshot", required=True)
     pb.add_argument("--from", dest="src", required=True)
     pb.set_defaults(func=cmd_blast)
+
+    pc = sub.add_parser("scan", help="find every exposed path to every bucket")
+    pc.add_argument("--snapshot", required=True)
+    pc.add_argument("--from", dest="src", default="internet")
+    pc.set_defaults(func=cmd_scan)
 
     a = p.parse_args(argv)
     return a.func(a)

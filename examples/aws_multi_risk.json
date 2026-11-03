@@ -1,0 +1,23 @@
+{
+  "security_groups": [
+    {"id": "sg-web", "ingress": [{"cidr": "0.0.0.0/0", "port": 22}]},
+    {"id": "sg-internal", "ingress": [{"cidr": "10.0.0.0/16", "port": 22}]}
+  ],
+  "instances": [
+    {"name": "web-01", "security_groups": ["sg-web"], "role": "app-role"},
+    {"name": "worker-01", "security_groups": ["sg-internal"], "role": "worker-role"}
+  ],
+  "roles": [
+    {"name": "app-role", "can_pass_to": ["admin-role"]},
+    {"name": "admin-role", "s3_full_access": ["customer-data"]},
+    {"name": "legacy-deploy", "trust_any_principal": true, "s3_full_access": ["finance-reports"]},
+    {"name": "worker-role", "s3_full_access": ["logs"]}
+  ],
+  "buckets": [
+    {"name": "customer-data", "sensitive": true},
+    {"name": "public-backups", "sensitive": true, "public": true},
+    {"name": "static-assets", "sensitive": false, "public": true},
+    {"name": "finance-reports", "sensitive": true},
+    {"name": "logs", "sensitive": false}
+  ]
+}

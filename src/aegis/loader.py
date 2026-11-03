@@ -21,8 +21,15 @@ def build_graph(data):
 
     for r in data.get("roles", []):
         g.add_node(Node("role:" + r["name"], "iam_role", r["name"]))
+        if r.get("trust_any_principal"):
+            g.add_edge(Edge("internet", "role:" + r["name"], "can_assume",
+                            "trust policy allows any principal (*)"))
+
     for b in data.get("buckets", []):
-        g.add_node(Node("s3:" + b["name"], "s3_bucket", b["name"], {"sensitive": b.get("sensitive", False)}))
+        bid = "s3:" + b["name"]
+        g.add_node(Node(bid, "s3_bucket", b["name"], {"sensitive": b.get("sensitive", False)}))
+        if b.get("public"):
+            g.add_edge(Edge("internet", bid, "can_access", "bucket policy allows public access"))
 
     for i in data.get("instances", []):
         nid = "ec2:" + i["name"]
