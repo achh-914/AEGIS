@@ -5,3 +5,8 @@ __pycache__/
 *.pyc
 .venv/
 *.egg-info/
+
+# Real cloud exports: never commit
+iam.json
+*.private.json
+snapshots/
