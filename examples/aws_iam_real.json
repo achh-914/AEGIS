@@ -1,0 +1,25 @@
+{
+  "UserDetailList": [],
+  "GroupDetailList": [],
+  "Policies": [],
+  "RoleDetailList": [
+    {
+      "RoleName": "app-role",
+      "Arn": "arn:aws:iam::123456789012:role/app-role",
+      "AssumeRolePolicyDocument": {"Version": "2012-10-17", "Statement": [
+        {"Effect": "Allow", "Principal": {"Service": "ec2.amazonaws.com"}, "Action": "sts:AssumeRole"}]},
+      "RolePolicyList": [{"PolicyName": "pass-admin", "PolicyDocument": {"Version": "2012-10-17", "Statement": [
+        {"Effect": "Allow", "Action": ["iam:PassRole", "ec2:RunInstances"], "Resource": "arn:aws:iam::123456789012:role/admin-role"}]}}],
+      "AttachedManagedPolicies": []
+    },
+    {
+      "RoleName": "admin-role",
+      "Arn": "arn:aws:iam::123456789012:role/admin-role",
+      "AssumeRolePolicyDocument": {"Version": "2012-10-17", "Statement": [
+        {"Effect": "Allow", "Principal": {"Service": "ec2.amazonaws.com"}, "Action": "sts:AssumeRole"}]},
+      "RolePolicyList": [{"PolicyName": "s3-all", "PolicyDocument": {"Version": "2012-10-17", "Statement": [
+        {"Effect": "Allow", "Action": "s3:*", "Resource": ["arn:aws:s3:::customer-data", "arn:aws:s3:::customer-data/*"]}]}}],
+      "AttachedManagedPolicies": []
+    }
+  ]
+}

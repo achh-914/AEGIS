@@ -10,6 +10,9 @@ def load_snapshot(path):
 
 
 def build_graph(data):
+    if "RoleDetailList" in data:
+        from .iam_loader import build_iam_graph
+        return build_iam_graph(data)
     g = Graph()
     g.add_node(Node("internet", "internet", "Internet"))
 

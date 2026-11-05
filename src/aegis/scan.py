@@ -6,6 +6,8 @@ RULES = [
     ("PRIVESC-PASSROLE", "PassRole"),
     ("OPEN-TRUST", "any principal"),
     ("PUBLIC-BUCKET", "public access"),
+    ("CROSS-ACCOUNT-TRUST", "cross-account"),
+    ("ASSUME-CHAIN", "sts:AssumeRole"),
 ]
 
 
