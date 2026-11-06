@@ -1,29 +1,35 @@
-# Code of Conduct
+<div align="center">
+
+<img src="docs/assets/conduct-banner.svg" alt="AEGIS code of conduct" width="100%"/>
+
+</div>
+
+# 🌍 Code of Conduct
 
 ## Our pledge
 
-We want AEGIS to be a welcoming, harassment-free project for everyone, regardless of experience, background, identity, or nationality.
+We want AEGIS to be a welcoming, harassment-free project for everyone, regardless of experience, background, identity or nationality.
 
-## Expected behavior
+## ✅ and ❌
 
-- Be respectful and constructive, especially in code review.
-- Assume good intent and ask questions before judging.
-- Give and accept feedback gracefully.
-- Focus on what is best for the project and the community.
+| ✅ Expected | ❌ Unacceptable |
+|---|---|
+| Be respectful and constructive, especially in code review | Harassment, insults, discrimination or personal attacks |
+| Assume good intent and ask before judging | Trolling, spam or deliberately disruptive behavior |
+| Give and accept feedback gracefully | Publishing others' private information without permission |
+| Focus on what is best for the project | Using AEGIS to attack systems you do not own or have permission to test |
 
-## Unacceptable behavior
+> [!CAUTION]
+> AEGIS is a security tool. Use it only on systems you own or are explicitly authorized to test.
 
-- Harassment, insults, discrimination, or personal attacks.
-- Trolling, spam, or deliberately disruptive behavior.
-- Publishing others' private information without permission.
-- Using AEGIS to attack systems you do not own or have permission to test.
+## ⚖️ Enforcement
 
-## Enforcement
+Maintainers may edit or remove comments, commits, issues and contributions that violate this code, and may temporarily or permanently ban contributors for harmful behavior.
 
-Maintainers may edit or remove comments, commits, issues, and contributions that violate this code, and may temporarily or permanently ban contributors for harmful behavior.
+## 📨 Reporting
 
-## Reporting
+Report violations privately to the maintainer through GitHub: [@achh-914](https://github.com/achh-914). All reports are reviewed and handled confidentially.
 
-Report violations privately to the maintainer through GitHub (profile: [@achh-914](https://github.com/achh-914)). All reports are reviewed and handled confidentially.
+## 🙏 Attribution
 
-This code is inspired by the [Contributor Covenant](https://www.contributor-covenant.org/).
+Inspired by the [Contributor Covenant](https://www.contributor-covenant.org/).

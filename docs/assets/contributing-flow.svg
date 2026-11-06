@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="1200" height="260" font-family="'JetBrains Mono','Fira Code',Consolas,'SF Mono',monospace">
+<defs>
+<radialGradient id="bg" cx="50%" cy="40%" r="80%"><stop offset="0" stop-color="#14122e"/><stop offset="1" stop-color="#05070d"/></radialGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#1a2440" stroke-width="0.6" opacity="0.6"/></pattern>
+<linearGradient id="ttl" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#a78bfa"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
+<filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+<style>
+.flow{stroke-dasharray:7 6;animation:d 1.2s linear infinite}
+@keyframes d{to{stroke-dashoffset:-26}}
+.pulse{animation:p 2.4s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:.6}50%{opacity:1}}
+.t{fill:#f1f5f9;font-weight:700;font-size:15px}
+.s{fill:#8b9bb8;font-size:11.5px}
+</style>
+</defs>
+<rect width="1200" height="260" fill="url(#bg)"/><rect width="1200" height="260" fill="url(#grid)"/>
+
+<text x="600" y="42" text-anchor="middle" font-size="21" font-weight="800" letter-spacing="6" fill="url(#ttl)">C O N T R I B U T I N G   ·   W O R K F L O W</text>
+<text x="600" y="66" text-anchor="middle" class="s">From idea to merged pull request</text>
+<rect x="50.0" y="96" width="160.0" height="110" rx="14" fill="#0a1120" stroke="#a78bfa" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="50.0" y="96" width="5" height="110" rx="2" fill="#a78bfa"/>
+<circle cx="78.0" cy="124" r="13" fill="#0a1120" stroke="#a78bfa" stroke-width="2" class="pulse"/><text x="78.0" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#a78bfa">1</text>
+<text x="138.0" y="132" text-anchor="middle" class="t">FORK</text>
+<text x="130.0" y="162" text-anchor="middle" class="s">Your own copy</text>
+<path d="M212.0 151 H236.0" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)"/>
+<rect x="238.0" y="96" width="160.0" height="110" rx="14" fill="#0a1120" stroke="#22d3ee" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="238.0" y="96" width="5" height="110" rx="2" fill="#22d3ee"/>
+<circle cx="266.0" cy="124" r="13" fill="#0a1120" stroke="#22d3ee" stroke-width="2" class="pulse"/><text x="266.0" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#22d3ee">2</text>
+<text x="326.0" y="132" text-anchor="middle" class="t">BRANCH</text>
+<text x="318.0" y="162" text-anchor="middle" class="s">feat/my-change</text>
+<path d="M400.0 151 H424.0" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)"/>
+<rect x="426.0" y="96" width="160.0" height="110" rx="14" fill="#0a1120" stroke="#38bdf8" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="426.0" y="96" width="5" height="110" rx="2" fill="#38bdf8"/>
+<circle cx="454.0" cy="124" r="13" fill="#0a1120" stroke="#38bdf8" stroke-width="2" class="pulse"/><text x="454.0" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#38bdf8">3</text>
+<text x="514.0" y="132" text-anchor="middle" class="t">CODE</text>
+<text x="506.0" y="162" text-anchor="middle" class="s">Small commits</text>
+<path d="M588.0 151 H612.0" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)"/>
+<rect x="614.0" y="96" width="160.0" height="110" rx="14" fill="#0a1120" stroke="#fbbf24" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="614.0" y="96" width="5" height="110" rx="2" fill="#fbbf24"/>
+<circle cx="642.0" cy="124" r="13" fill="#0a1120" stroke="#fbbf24" stroke-width="2" class="pulse"/><text x="642.0" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#fbbf24">4</text>
+<text x="702.0" y="132" text-anchor="middle" class="t">TEST</text>
+<text x="694.0" y="162" text-anchor="middle" class="s">pytest -q</text>
+<path d="M776.0 151 H800.0" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)"/>
+<rect x="802.0" y="96" width="160.0" height="110" rx="14" fill="#0a1120" stroke="#fb923c" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="802.0" y="96" width="5" height="110" rx="2" fill="#fb923c"/>
+<circle cx="830.0" cy="124" r="13" fill="#0a1120" stroke="#fb923c" stroke-width="2" class="pulse"/><text x="830.0" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#fb923c">5</text>
+<text x="890.0" y="132" text-anchor="middle" class="t">PULL REQUEST</text>
+<text x="882.0" y="162" text-anchor="middle" class="s">Explain the why</text>
+<path d="M964.0 151 H988.0" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)"/>
+<rect x="990.0" y="96" width="160.0" height="110" rx="14" fill="#0a1120" stroke="#34d399" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="990.0" y="96" width="5" height="110" rx="2" fill="#34d399"/>
+<circle cx="1018.0" cy="124" r="13" fill="#0a1120" stroke="#34d399" stroke-width="2" class="pulse"/><text x="1018.0" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#34d399">6</text>
+<text x="1078.0" y="132" text-anchor="middle" class="t">MERGE</text>
+<text x="1070.0" y="162" text-anchor="middle" class="s">After review + CI</text>
+<text x="600" y="238" text-anchor="middle" class="s">Read-only by design: never add code that modifies cloud resources.</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 260" width="1100" height="260" font-family="'JetBrains Mono','Fira Code',Consolas,'SF Mono',monospace">
+<defs>
+<radialGradient id="bg" cx="50%" cy="40%" r="80%"><stop offset="0" stop-color="#14122e"/><stop offset="1" stop-color="#05070d"/></radialGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#1a2440" stroke-width="0.6" opacity="0.6"/></pattern>
+<linearGradient id="ttl" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#a78bfa"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
+<filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+<style>
+.flow{stroke-dasharray:7 6;animation:d 1.2s linear infinite}
+@keyframes d{to{stroke-dashoffset:-26}}
+.pulse{animation:p 2.4s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:.6}50%{opacity:1}}
+.t{fill:#f1f5f9;font-weight:700;font-size:15px}
+.s{fill:#8b9bb8;font-size:11.5px}
+</style>
+</defs>
+<rect width="1100" height="260" fill="url(#bg)"/><rect width="1100" height="260" fill="url(#grid)"/>
+
+<text x="550" y="42" text-anchor="middle" font-size="21" font-weight="800" letter-spacing="6" fill="url(#ttl)">S E C U R I T Y   ·   D I S C L O S U R E</text>
+<text x="550" y="66" text-anchor="middle" class="s">How a vulnerability report travels, from private report to public fix</text>
+<rect x="50.0" y="96" width="229.0" height="110" rx="14" fill="#0a1120" stroke="#f43f5e" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="50.0" y="96" width="5" height="110" rx="2" fill="#f43f5e"/>
+<circle cx="78.0" cy="124" r="13" fill="#0a1120" stroke="#f43f5e" stroke-width="2" class="pulse"/><text x="78.0" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#f43f5e">1</text>
+<text x="172.5" y="132" text-anchor="middle" class="t">REPORT</text>
+<text x="164.5" y="162" text-anchor="middle" class="s">Private advisory</text>
+<text x="164.5" y="179" text-anchor="middle" class="s">via the Security tab</text>
+<path d="M281.0 151 H305.0" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)"/>
+<rect x="307.0" y="96" width="229.0" height="110" rx="14" fill="#0a1120" stroke="#fb923c" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="307.0" y="96" width="5" height="110" rx="2" fill="#fb923c"/>
+<circle cx="335.0" cy="124" r="13" fill="#0a1120" stroke="#fb923c" stroke-width="2" class="pulse"/><text x="335.0" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#fb923c">2</text>
+<text x="429.5" y="132" text-anchor="middle" class="t">TRIAGE</text>
+<text x="421.5" y="162" text-anchor="middle" class="s">Confirm and assess</text>
+<text x="421.5" y="179" text-anchor="middle" class="s">severity</text>
+<path d="M538.0 151 H562.0" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)"/>
+<rect x="564.0" y="96" width="229.0" height="110" rx="14" fill="#0a1120" stroke="#22d3ee" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="564.0" y="96" width="5" height="110" rx="2" fill="#22d3ee"/>
+<circle cx="592.0" cy="124" r="13" fill="#0a1120" stroke="#22d3ee" stroke-width="2" class="pulse"/><text x="592.0" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#22d3ee">3</text>
+<text x="686.5" y="132" text-anchor="middle" class="t">FIX</text>
+<text x="678.5" y="162" text-anchor="middle" class="s">Patch built</text>
+<text x="678.5" y="179" text-anchor="middle" class="s">in private</text>
+<path d="M795.0 151 H819.0" fill="none" stroke="#22d3ee" stroke-width="2" class="flow" marker-end="url(#ar)"/>
+<rect x="821.0" y="96" width="229.0" height="110" rx="14" fill="#0a1120" stroke="#34d399" stroke-width="1.6" filter="url(#glow)"/>
+<rect x="821.0" y="96" width="5" height="110" rx="2" fill="#34d399"/>
+<circle cx="849.0" cy="124" r="13" fill="#0a1120" stroke="#34d399" stroke-width="2" class="pulse"/><text x="849.0" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#34d399">4</text>
+<text x="943.5" y="132" text-anchor="middle" class="t">DISCLOSE</text>
+<text x="935.5" y="162" text-anchor="middle" class="s">Release + credit</text>
+<text x="935.5" y="179" text-anchor="middle" class="s">public advisory</text>
+<text x="550" y="238" text-anchor="middle" class="s">Never open a public issue for a vulnerability.</text>
+</svg>

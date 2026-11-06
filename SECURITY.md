@@ -1,31 +1,57 @@
-# Security Policy
+<div align="center">
 
-AEGIS is a security tool, so we take vulnerabilities in the project itself seriously.
+<img src="docs/assets/security-flow.svg" alt="AEGIS vulnerability disclosure flow" width="100%"/>
 
-## Supported versions
+![reporting](https://img.shields.io/badge/reporting-private-f43f5e?style=for-the-badge)
+![response](https://img.shields.io/badge/first%20response-a%20few%20days-fb923c?style=for-the-badge)
+![scope](https://img.shields.io/badge/scope-AEGIS%20code-22d3ee?style=for-the-badge)
 
-The project is in early development. Only the latest commit on `main` receives security fixes.
+</div>
 
-## Reporting a vulnerability
+# 🛡️ Security Policy
 
-**Please do not open a public issue.**
+AEGIS is a security tool, so vulnerabilities in the project itself are taken seriously.
 
-1. Go to the **Security** tab of this repository.
-2. Click **Report a vulnerability** to open a private advisory.
-3. Include a description, steps to reproduce, and the potential impact.
+> [!IMPORTANT]
+> **Do not open a public issue for a vulnerability.** Use the private reporting flow below.
 
-## What to expect
+## 📦 Supported versions
 
-- Acknowledgement within a few days.
-- An assessment and a fix plan once the report is confirmed.
-- Credit in the release notes if you wish.
+| Version | Supported |
+|---|---|
+| `main` (latest commit) | ✅ Security fixes |
+| `v0.1.x` | ✅ Best effort |
+| Older | ❌ |
 
-## Scope
+## 📨 How to report
 
-In scope: vulnerabilities in AEGIS code, parsing of snapshots, report generation, and generated remediation patches.
+1. Open the **Security** tab of this repository.
+2. Click **Report a vulnerability** to create a private advisory.
+3. Include a clear description, steps to reproduce and the potential impact.
 
-Out of scope: weaknesses in third-party cloud providers or in infrastructure you analyze with AEGIS.
+## ⏱️ What to expect
 
-## Handling sensitive data
+| Step | What happens |
+|---|---|
+| 🔴 Report | You send a private advisory |
+| 🟠 Triage | We confirm the issue and assess its severity |
+| 🔵 Fix | A patch is prepared privately |
+| 🟢 Disclose | Release, public advisory and credit if you wish |
 
-Cloud snapshots can contain sensitive information. Never share real snapshots or credentials in issues or pull requests; anonymize them first.
+Acknowledgement usually comes within a few days. This is a small open source project, so timelines are best effort.
+
+## 🎯 Scope
+
+| In scope | Out of scope |
+|---|---|
+| AEGIS source code | Weaknesses in cloud providers |
+| Parsing of snapshots and exports | Infrastructure you analyze with AEGIS |
+| Report generation | Issues that need a compromised local machine |
+| Generated remediation patches | Social engineering |
+
+## 🔐 Handling sensitive data
+
+> [!WARNING]
+> Cloud exports can contain account IDs, role names and policies. **Never share real snapshots or credentials** in issues, pull requests or advisories. Anonymize them first.
+
+AEGIS is **read-only by design**: it never modifies your cloud, and generated fixes are patches you review and apply yourself.
