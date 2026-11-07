@@ -154,6 +154,10 @@ Run the tests with `pytest -q`.
 - [ ] Azure and GCP adapters
 - [ ] REST API + dashboard
 
+## Architecture decisions
+
+See [docs/architecture/decisions](docs/architecture/decisions) for the design decisions (ADR-0001 to ADR-0009).
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) and [SECURITY.md](SECURITY.md).
