@@ -128,6 +128,30 @@ def cmd_fix(a):
     return 1 if remaining else 0
 
 
+def cmd_collect(a):
+    from .collect import (CollectError, fetch_authorization_details, identity,
+                          make_clients, save_snapshot, summary)
+    try:
+        iam, sts = make_clients(a.profile)
+        account, arn = identity(sts)
+        print("%s~ read-only collection%s  account %s  as %s" % (YEL, RST, account, arn))
+        print("  %scalls only: iam:GetAccountAuthorizationDetails, sts:GetCallerIdentity%s" % (DIM, RST))
+        data = fetch_authorization_details(iam)
+        out = a.out or "snapshots/iam-%s.json" % account
+        save_snapshot(data, out, force=a.force)
+    except CollectError as e:
+        print("%sx %s%s" % (RED, e, RST))
+        return 2
+    except Exception as e:
+        print("%sx AWS call failed: %s%s" % (RED, e, RST))
+        return 2
+    c = summary(data)
+    print("%s+ saved %s%s" % (GRN, out, RST))
+    print("  %d roles, %d users, %d groups, %d policies" % (c["roles"], c["users"], c["groups"], c["policies"]))
+    print("\nNext: aegis scan --snapshot %s" % out)
+    return 0
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="aegis")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -159,6 +183,12 @@ def main(argv=None):
     pf.add_argument("--snapshot", required=True)
     pf.add_argument("--terraform", action="store_true", help="also print the patch")
     pf.set_defaults(func=cmd_fix)
+
+    pk = sub.add_parser("collect", help="read an AWS account (read-only) into a snapshot")
+    pk.add_argument("--profile", default=None, help="AWS profile name (optional)")
+    pk.add_argument("--out", default=None, help="output file (default snapshots/iam-<account>.json)")
+    pk.add_argument("--force", action="store_true", help="allow writing to a non git-ignored path")
+    pk.set_defaults(func=cmd_collect)
 
     a = p.parse_args(argv)
     return a.func(a)
