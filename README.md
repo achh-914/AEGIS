@@ -158,6 +158,17 @@ Run the tests with `pytest -q`.
 
 See [docs/architecture/decisions](docs/architecture/decisions) for the design decisions (ADR-0001 to ADR-0009).
 
+## ✅ Validation
+
+| Dataset | Result |
+|---|---|
+| Synthetic fixtures (real AWS API format) | Covered by the test suite |
+| Live AWS account (read-only IAM export via `aegis collect`) | 12 roles, 2 users and 16 policies parsed with 0 warnings |
+
+The live account is small and nothing in it is exposed to the internet, so no finding was expected. This run validates **parsing of the real API format**, not detection quality on large accounts.
+
+Not modelled yet: federated trust (OIDC/SAML), IAM users and groups, and findings that are not tied to an S3 bucket.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) and [SECURITY.md](SECURITY.md).
