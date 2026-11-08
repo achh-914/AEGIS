@@ -1,12 +1,6 @@
-```
- █████╗ ███████╗ ██████╗ ██╗███████╗
-██╔══██╗██╔════╝██╔════╝ ██║██╔════╝
-███████║█████╗  ██║  ███╗██║███████╗
-██╔══██║██╔══╝  ██║   ██║██║╚════██║
-██║  ██║███████╗╚██████╔╝██║███████║
-╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝╚══════╝
-```
-
+<p align="center">
+  <img src="docs/assets/aegis-logo.svg" width="420" alt="AEGIS">
+</p>
 ### Multi-cloud Security Intelligence & Infrastructure Analysis Platform
 
 **Not another scanner. A system that understands how your cloud connects, and how small misconfigurations chain into big breaches.**
